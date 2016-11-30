@@ -1,0 +1,169 @@
+---
+title: "R Markdown範例"
+author: ""
+date: ""
+output: html_document
+---
+
+***
+R Markdown通過R產生可重製報表，可於pdf、slides、html和word中嵌入R程式碼
+
+使用前須先安裝knitr和rmarkdown套件
+
+利用**純文本**＋**markdown語法**+**一點latex**+**一點html**的方式撰寫報告
+
+空行會產生不同的段落  
+若要強迫斷行，則在行尾加入兩個空白
+
+<br>
+<br>
+
+***
+
+### 標題產生方式
+
+- 底線
+```{r, eval=F}
+H1 標題
+===========
+
+H2 標題
+----------
+```
+
+H1 標題
+===========
+
+H2 標題
+----------
+
+<br>
+<br>
+- ＃
+```{r}
+# h1
+## h2
+### h3
+```
+
+# h1
+## h2
+### h3
+<br>
+<br>
+
+***
+於段落第一行加上**>**產生引言
+```{r, eval=FALSE}
+> This is a blockquote
+```
+
+> This is a blockquote
+
+<br><br><br><br><br><br><br><br>
+
+### 清單
+
+項目符號可使用'+', '-'或'1.', '2.', '3.'  
+
++ list by +
+- list by -
+
+1. 項目一 
+2. 項目二
+3. 項目三  
+    - 可於項目下加入段落，但需記得加入空白
+
+<br><br><br><br>
+
+***
+
+### 數學公式
+使用latex語法加入數學公式，公式前後皆需加入$  
+inline equation: $A = \pi*r^{2}$
+
+若為段落形式，公式前後使用兩個$ 
+display equation: $$B = \frac{2}{\sum_{i=1}^{n}X_i}$$
+
+<br><br><br><br><br><br>
+
+***
+
+### 分隔線
+```{r, eval=FALSE}
+***
+* * *
+- - -
+```
+
+
+***
+
+* * *
+
+- - -
+
+<br><br><br><br><br><br>
+
+### 超連結與圖片
+
+```{r, eval=FALSE}
+超連結
+link: [R project](https://www.r-project.org/)  
+<https://www.r-project.org/>  
+
+圖片
+image: ![](http://markdown.tw/images/208x128.png)
+```
+link: [R project](https://www.r-project.org/)  
+<https://www.r-project.org/>  
+<br>
+image: ![](http://markdown.tw/images/208x128.png)
+
+若要調整圖片大小，則需使用html語法
+
+
+***
+### 程式碼
+
+可在區塊中執行R程式碼
+
+插入程式碼區塊快捷鍵  
+- Windows: Ctrl + Alt + I  
+- MAC    : Command + option +I  
+
+```{r, comment=""}
+sum(rnorm(100))
+```
+
+<br><br><br><br>
+
+#### 程式碼區塊設定參數
+
+參數   |功能
+-------|-------
+eval   |是否執行程式碼
+echo   |是否顯示程式碼
+results|是否顯示結果
+warning|是否顯示警告訊息
+error  |是否顯示錯誤訊息
+message|是否顯示程式執行結果產生的訊息
+include|是否將程式碼和結果輸出
+tidy   |使否整理程式碼
+prompt |是否顯示提示符
+
+eval=FALSE
+```{r, eval=FALSE, prompt=TRUE}
+iris[1:10,]
+```
+<br>
+
+echo=FALSE 只顯示圖片
+
+```{r, echo=FALSE}
+pairs(iris)
+```
+
+### math
+
+$\frac{1}{3}$
